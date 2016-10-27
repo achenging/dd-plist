@@ -33,6 +33,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 import java.text.ParseException;
 
 /**
@@ -249,6 +250,11 @@ public class PropertyListParser {
         saveAsXML(root, fous);
         fous.close();
     }
+
+//    public static void saveAsXML(NSObject root, OutputStream out) throws IOException {
+//        out.write(root.toXMLPropertyList().getBytes("UTF-8"));
+//        out.close();
+//    }
 
     /**
      * Saves a property list with the given object as root in XML format into an output stream.

@@ -157,15 +157,15 @@ public class NSString extends NSObject implements Comparable<Object> {
 
         //Make sure that the string is encoded in UTF-8 for the XML output
         synchronized (NSString.class) {
-            if (utf8Encoder == null)
-                utf8Encoder = Charset.forName("UTF-8").newEncoder();
-            else
-                utf8Encoder.reset();
+//            if (utf8Encoder == null)
+//                utf8Encoder = Charset.forName("UTF-8").newEncoder();
+//            else
+//                utf8Encoder.reset();
 
             try {
-                ByteBuffer byteBuf = utf8Encoder.encode(CharBuffer.wrap(content));
-                byte[] bytes = new byte[byteBuf.remaining()];
-                byteBuf.get(bytes);
+//                ByteBuffer byteBuf = utf8Encoder.encode(CharBuffer.wrap(content));
+                byte[] bytes = content.getBytes();
+//                byteBuf.get(bytes);
                 content = new String(bytes, "UTF-8");
             } catch (Exception ex) {
                 throw new RuntimeException("Could not encode the NSString into UTF-8: " + String.valueOf(ex.getMessage()));
